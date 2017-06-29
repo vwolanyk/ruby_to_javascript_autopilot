@@ -18,7 +18,7 @@ return "Adding new car to fleet. Fleet size is now "+ cars.length + ".";
 }
 
 
-function pick_up_passenger(car) {
+function pickUpPassenger(car) {
  car.passengers += 1;
  car.gas -= 10;
  return "Picked up passenger. Car now has " + car.passengers + " passengers.";
@@ -53,4 +53,11 @@ function drive(car, cityDistance) {
   car.city = getDestination(car);
   car.gas -= cityDistance;
   return "Drove to " + car.city + ". Remaining gas: " + getGasDisplay(car.gas);
+}
+
+function dropOffPassengers(car) {
+  previousPassengers = car.passengers;
+  car.passengers = 0;
+  return "Dropped off " + previousPassengers + " passengers.";
+
 }
