@@ -1,21 +1,26 @@
-function getNewCar() {
+// Ruby To JS
 
-   return {city: 'Toronto',
-  passengers: 0,
-  gas: 100}
+// empty array for fleet
+var cars = []
+var car = getNewCar()
+// Create a new car object
+function getNewCar() {
+   return { city: 'Toronto',
+            passengers: 0,
+            gas: 100}
 
 }
 
-
-var cars = []
-console.log(cars)
+// Add a new car to a fleet
 function addCar(cars,newCar) {
 cars.push(newCar)
-return "Adding new car to fleet. Fleet size is now" = "."
+return "Adding new car to fleet. Fleet size is now "+ cars.length + "."
 }
 
-var newCar= getNewCar()
 
-addCar(cars,newCar)
+function pick_up_passenger(car) {
+ car.passengers += 1;
+ car.gas -= 10;
+ return "Picked up passenger. Car now has " + car.passengers + " passengers."
 
-console.log(cars)
+}
