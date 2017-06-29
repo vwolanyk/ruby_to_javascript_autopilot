@@ -25,7 +25,7 @@ function pick_up_passenger(car) {
 
 }
 
-function get_destination(car) {
+function getDestination(car) {
   if (car.city === 'Toronto'){
         return 'Mississauga';
   } else if (car.city === "Mississauga") {
@@ -33,4 +33,14 @@ function get_destination(car) {
   } else if (car.city === 'London') {
         return 'Toronto';
   }
+}
+
+function fillUpGas(car) {
+  oldGas = car.gas;
+  car.gas = 100;
+  return "Filled up to " + getGasDisplay(car.gas) + " on gas from " + getGasDisplay(oldGas) + "."
+}
+
+function getGasDisplay(gasAmount) {
+  return gasAmount  
 }
