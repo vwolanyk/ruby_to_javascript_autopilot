@@ -1,7 +1,6 @@
 // Ruby To JS
 
-// empty array for fleet
-var cars = []
+
 
 // Create a new car object
 function getNewCar() {
@@ -42,7 +41,7 @@ function fillUpGas(car) {
 }
 
 function getGasDisplay(gasAmount) {
-  return gasAmount
+  return gasAmount+"%"
 }
 
 function drive(car, cityDistance) {
@@ -66,15 +65,35 @@ function act(car) {
   var distanceBetweenCities = 50
 
   if (car.gas < 20){
-    fillUpGas(car);
+    return fillUpGas(car);
   } else if (car.passengers < 3) {
-    pickUpPassenger(car)
+     return pickUpPassenger(car)
   } else {
       if (car.gas < distanceBetweenCities){
-          return fillUpGas(car);}
+          fillUpGas(car);}
     droveTo = drive(car, distanceBetweenCities);
     passengersDropped = dropOffPassengers(car);
     return droveTo +" "+ passengersDropped
   }
-
 }
+
+function commandFleet(cars){
+
+  for (var i = 0; i < cars.length; i++){
+    action = act(cars[i]);
+   console.log("Car " + (i + 1) + ": " + action);
+  }
+  return  console.log('---');
+}
+
+function addOneCarPerDay(cars,numDays) {
+
+  for (var i = numDays; i > 0; i--) {
+    newCar = getNewCar();
+    console.log(addCar(cars,newCar));
+    commandFleet(cars)
+  }
+}
+
+cars = []
+addOneCarPerDay(cars, 10)
